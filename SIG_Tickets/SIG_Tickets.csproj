@@ -88,6 +88,12 @@
     <Compile Include="Foro.cs">
       <DependentUpon>SIGDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="GestionSolicitudes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionSolicitudes.Designer.cs">
+      <DependentUpon>GestionSolicitudes.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,12 +117,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SIGDataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="SolicitudesCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SolicitudesCliente.Designer.cs">
+      <DependentUpon>SolicitudesCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tecnico.cs">
       <DependentUpon>SIGDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Ticket.cs">
       <DependentUpon>SIGDataModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="GestionSolicitudes.resx">
+      <DependentUpon>GestionSolicitudes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,6 +145,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SolicitudesCliente.resx">
+      <DependentUpon>SolicitudesCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

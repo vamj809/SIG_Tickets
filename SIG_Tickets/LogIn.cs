@@ -31,6 +31,9 @@ namespace SIG_Tickets
                 if (UsuarioTec != null) {
                     //LogIn Correcto
                     MessageBox.Show($"Técnico:  {UsuarioTec.tec_apellido}, {UsuarioTec.tec_nombre}");
+                    
+                    Hide();
+                    new GestionSolicitudes(UsuarioTec).Show();
                 } else {
                     //LogIn Incorrecto
                     MessageBox.Show("Técnico No Encontrado");
@@ -41,6 +44,9 @@ namespace SIG_Tickets
                 if (UsuarioCli != null) {
                     //LogIn Correcto
                     MessageBox.Show($"Cliente:  {UsuarioCli.cli_apellidos}, {UsuarioCli.cli_nombres}");
+
+                    Hide();
+                    new SolicitudesCliente(DataEntities, UsuarioCli).Show();
                 } else {
                     //LogIn Incorrecto
                     MessageBox.Show("Cliente No Encontrado");

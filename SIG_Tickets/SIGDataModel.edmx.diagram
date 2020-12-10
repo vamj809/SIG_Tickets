@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9114ed0fc2d44dab87cede95c9d25315" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="SIGDataModel.Cliente" Width="1.5" PointX="8.625" PointY="3.25" />
+        <EntityTypeShape EntityType="SIGDataModel.DetallesTicket" Width="1.5" PointX="6.375" PointY="4" />
+        <EntityTypeShape EntityType="SIGDataModel.Entidades_Externas" Width="1.5" PointX="1" PointY="2" />
+        <EntityTypeShape EntityType="SIGDataModel.EntradaForo" Width="1.5" PointX="6.375" PointY="6.5" />
+        <EntityTypeShape EntityType="SIGDataModel.Foro" Width="1.5" PointX="4.125" PointY="6.5" />
+        <EntityTypeShape EntityType="SIGDataModel.Tecnico" Width="1.5" PointX="1" PointY="5.125" />
+        <EntityTypeShape EntityType="SIGDataModel.Ticket" Width="1.5" PointX="4" PointY="2.25" />
+        <AssociationConnector Association="SIGDataModel.FK_Foros_ToCliente" />
+        <AssociationConnector Association="SIGDataModel.FK_Tickets_ToCliente" />
+        <AssociationConnector Association="SIGDataModel.FK_DetallesTickets_ToTickets" />
+        <AssociationConnector Association="SIGDataModel.FK_Tickets_ToEntidadExt" />
+        <AssociationConnector Association="SIGDataModel.FK_EntradaForos_ToForos" />
+        <AssociationConnector Association="SIGDataModel.FK_Foros_ToTecnico" />
+        <AssociationConnector Association="SIGDataModel.FK_Tickets_ToTecnico" ManuallyRouted="false" >
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

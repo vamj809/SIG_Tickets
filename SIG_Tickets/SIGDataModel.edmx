@@ -1,0 +1,547 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SIGDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="cli_id" />
+          </Key>
+          <Property Name="cli_id" Type="int" Nullable="false" />
+          <Property Name="cli_usuario" Type="nvarchar" MaxLength="255" />
+          <Property Name="cli_nombres" Type="nvarchar" MaxLength="255" />
+          <Property Name="cli_apellidos" Type="nvarchar" MaxLength="255" />
+          <Property Name="cli_correo_electronico" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="DetallesTickets">
+          <Key>
+            <PropertyRef Name="dt_id" />
+          </Key>
+          <Property Name="dt_id" Type="int" Nullable="false" />
+          <Property Name="tk_id_ticket" Type="int" />
+          <Property Name="dt_titulo" Type="nvarchar" MaxLength="255" />
+          <Property Name="dt_comentario" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Entidades_Externas">
+          <Key>
+            <PropertyRef Name="ent_id" />
+          </Key>
+          <Property Name="ent_id" Type="int" Nullable="false" />
+          <Property Name="ent_nombre" Type="nvarchar" MaxLength="255" />
+          <Property Name="ent_correo_electronico" Type="nvarchar" MaxLength="255" />
+          <Property Name="ent_direccion" Type="nvarchar" MaxLength="255" />
+          <Property Name="ent_telefono_1" Type="nvarchar" MaxLength="255" />
+          <Property Name="ent_telefono_2" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="EntradaForos">
+          <Key>
+            <PropertyRef Name="eforo_id" />
+          </Key>
+          <Property Name="eforo_id" Type="int" Nullable="false" />
+          <Property Name="foro_id" Type="int" />
+          <Property Name="eforo_id_usuario" Type="int" />
+          <Property Name="eforo_titulo" Type="nvarchar" MaxLength="255" />
+          <Property Name="eforo_descripcion" Type="nvarchar" MaxLength="255" />
+          <Property Name="eforo_es_solucion" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Foros">
+          <Key>
+            <PropertyRef Name="foro_id" />
+          </Key>
+          <Property Name="foro_id" Type="int" Nullable="false" />
+          <Property Name="foro_tema" Type="nvarchar" MaxLength="255" />
+          <Property Name="foro_tipo" Type="nvarchar" MaxLength="255" />
+          <Property Name="foro_fecha_cierre" Type="nvarchar" MaxLength="255" />
+          <Property Name="cli_id" Type="int" />
+          <Property Name="tec_id" Type="int" />
+          <Property Name="foro_is_verificado" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Tecnicos">
+          <Key>
+            <PropertyRef Name="tec_id" />
+          </Key>
+          <Property Name="tec_id" Type="int" Nullable="false" />
+          <Property Name="tec_usuario" Type="nvarchar" MaxLength="255" />
+          <Property Name="tec_nombre" Type="nvarchar" MaxLength="255" />
+          <Property Name="tec_apellido" Type="nvarchar" MaxLength="255" />
+          <Property Name="tec_estado" Type="nvarchar" MaxLength="255" />
+          <Property Name="tec_tipo" Type="nvarchar" MaxLength="255" />
+          <Property Name="tec_correo_electronico" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Tickets">
+          <Key>
+            <PropertyRef Name="tk_id_ticket" />
+          </Key>
+          <Property Name="tk_id_ticket" Type="int" Nullable="false" />
+          <Property Name="tk_asunto" Type="nvarchar" MaxLength="255" />
+          <Property Name="tk_descripción" Type="nvarchar" MaxLength="255" />
+          <Property Name="tk_categoria" Type="nvarchar" MaxLength="255" />
+          <Property Name="tk_fecha_creacion" Type="nvarchar" MaxLength="255" />
+          <Property Name="tk_fecha_vencimiento" Type="nvarchar" MaxLength="255" />
+          <Property Name="tk_fecha_cierre" Type="nvarchar" MaxLength="255" />
+          <Property Name="tk_estado_ticket" Type="nvarchar" MaxLength="255" />
+          <Property Name="cli_id" Type="int" />
+          <Property Name="tec_id" Type="int" />
+          <Property Name="ent_id" Type="int" />
+        </EntityType>
+        <Association Name="FK_DetallesTickets_ToTickets">
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="0..1" />
+          <End Role="DetallesTickets" Type="Self.DetallesTickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tickets">
+              <PropertyRef Name="tk_id_ticket" />
+            </Principal>
+            <Dependent Role="DetallesTickets">
+              <PropertyRef Name="tk_id_ticket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EntradaForos_ToForos">
+          <End Role="Foros" Type="Self.Foros" Multiplicity="0..1" />
+          <End Role="EntradaForos" Type="Self.EntradaForos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Foros">
+              <PropertyRef Name="foro_id" />
+            </Principal>
+            <Dependent Role="EntradaForos">
+              <PropertyRef Name="foro_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Foros_ToCliente">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+          <End Role="Foros" Type="Self.Foros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="cli_id" />
+            </Principal>
+            <Dependent Role="Foros">
+              <PropertyRef Name="cli_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Foros_ToTecnico">
+          <End Role="Tecnicos" Type="Self.Tecnicos" Multiplicity="0..1" />
+          <End Role="Foros" Type="Self.Foros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tecnicos">
+              <PropertyRef Name="tec_id" />
+            </Principal>
+            <Dependent Role="Foros">
+              <PropertyRef Name="tec_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_ToCliente">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="cli_id" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="cli_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_ToEntidadExt">
+          <End Role="Entidades_Externas" Type="Self.Entidades_Externas" Multiplicity="0..1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entidades_Externas">
+              <PropertyRef Name="ent_id" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="ent_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_ToTecnico">
+          <End Role="Tecnicos" Type="Self.Tecnicos" Multiplicity="0..1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tecnicos">
+              <PropertyRef Name="tec_id" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="tec_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SIGDataModelStoreContainer">
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetallesTickets" EntityType="Self.DetallesTickets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Entidades_Externas" EntityType="Self.Entidades_Externas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EntradaForos" EntityType="Self.EntradaForos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Foros" EntityType="Self.Foros" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tecnicos" EntityType="Self.Tecnicos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tickets" EntityType="Self.Tickets" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DetallesTickets_ToTickets" Association="Self.FK_DetallesTickets_ToTickets">
+            <End Role="Tickets" EntitySet="Tickets" />
+            <End Role="DetallesTickets" EntitySet="DetallesTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntradaForos_ToForos" Association="Self.FK_EntradaForos_ToForos">
+            <End Role="Foros" EntitySet="Foros" />
+            <End Role="EntradaForos" EntitySet="EntradaForos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Foros_ToCliente" Association="Self.FK_Foros_ToCliente">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Foros" EntitySet="Foros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Foros_ToTecnico" Association="Self.FK_Foros_ToTecnico">
+            <End Role="Tecnicos" EntitySet="Tecnicos" />
+            <End Role="Foros" EntitySet="Foros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_ToCliente" Association="Self.FK_Tickets_ToCliente">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_ToEntidadExt" Association="Self.FK_Tickets_ToEntidadExt">
+            <End Role="Entidades_Externas" EntitySet="Entidades_Externas" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_ToTecnico" Association="Self.FK_Tickets_ToTecnico">
+            <End Role="Tecnicos" EntitySet="Tecnicos" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SIGDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SIGDataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clientes" EntityType="SIGDataModel.Cliente" />
+          <EntitySet Name="DetallesTickets" EntityType="SIGDataModel.DetallesTicket" />
+          <EntitySet Name="Entidades_Externas" EntityType="SIGDataModel.Entidades_Externas" />
+          <EntitySet Name="EntradaForos" EntityType="SIGDataModel.EntradaForo" />
+          <EntitySet Name="Foros" EntityType="SIGDataModel.Foro" />
+          <EntitySet Name="Tecnicos" EntityType="SIGDataModel.Tecnico" />
+          <EntitySet Name="Tickets" EntityType="SIGDataModel.Ticket" />
+          <AssociationSet Name="FK_Foros_ToCliente" Association="SIGDataModel.FK_Foros_ToCliente">
+            <End Role="Cliente" EntitySet="Clientes" />
+            <End Role="Foro" EntitySet="Foros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_ToCliente" Association="SIGDataModel.FK_Tickets_ToCliente">
+            <End Role="Cliente" EntitySet="Clientes" />
+            <End Role="Ticket" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetallesTickets_ToTickets" Association="SIGDataModel.FK_DetallesTickets_ToTickets">
+            <End Role="Ticket" EntitySet="Tickets" />
+            <End Role="DetallesTicket" EntitySet="DetallesTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_ToEntidadExt" Association="SIGDataModel.FK_Tickets_ToEntidadExt">
+            <End Role="Entidades_Externas" EntitySet="Entidades_Externas" />
+            <End Role="Ticket" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntradaForos_ToForos" Association="SIGDataModel.FK_EntradaForos_ToForos">
+            <End Role="Foro" EntitySet="Foros" />
+            <End Role="EntradaForo" EntitySet="EntradaForos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Foros_ToTecnico" Association="SIGDataModel.FK_Foros_ToTecnico">
+            <End Role="Tecnico" EntitySet="Tecnicos" />
+            <End Role="Foro" EntitySet="Foros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_ToTecnico" Association="SIGDataModel.FK_Tickets_ToTecnico">
+            <End Role="Tecnico" EntitySet="Tecnicos" />
+            <End Role="Ticket" EntitySet="Tickets" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="cli_id" />
+          </Key>
+          <Property Name="cli_id" Type="Int32" Nullable="false" />
+          <Property Name="cli_usuario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="cli_nombres" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="cli_apellidos" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="cli_correo_electronico" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Foros" Relationship="SIGDataModel.FK_Foros_ToCliente" FromRole="Cliente" ToRole="Foro" />
+          <NavigationProperty Name="Tickets" Relationship="SIGDataModel.FK_Tickets_ToCliente" FromRole="Cliente" ToRole="Ticket" />
+        </EntityType>
+        <EntityType Name="DetallesTicket">
+          <Key>
+            <PropertyRef Name="dt_id" />
+          </Key>
+          <Property Name="dt_id" Type="Int32" Nullable="false" />
+          <Property Name="tk_id_ticket" Type="Int32" />
+          <Property Name="dt_titulo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="dt_comentario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Ticket" Relationship="SIGDataModel.FK_DetallesTickets_ToTickets" FromRole="DetallesTicket" ToRole="Ticket" />
+        </EntityType>
+        <EntityType Name="Entidades_Externas">
+          <Key>
+            <PropertyRef Name="ent_id" />
+          </Key>
+          <Property Name="ent_id" Type="Int32" Nullable="false" />
+          <Property Name="ent_nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ent_correo_electronico" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ent_direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ent_telefono_1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ent_telefono_2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Tickets" Relationship="SIGDataModel.FK_Tickets_ToEntidadExt" FromRole="Entidades_Externas" ToRole="Ticket" />
+        </EntityType>
+        <EntityType Name="EntradaForo">
+          <Key>
+            <PropertyRef Name="eforo_id" />
+          </Key>
+          <Property Name="eforo_id" Type="Int32" Nullable="false" />
+          <Property Name="foro_id" Type="Int32" />
+          <Property Name="eforo_id_usuario" Type="Int32" />
+          <Property Name="eforo_titulo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="eforo_descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="eforo_es_solucion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Foro" Relationship="SIGDataModel.FK_EntradaForos_ToForos" FromRole="EntradaForo" ToRole="Foro" />
+        </EntityType>
+        <EntityType Name="Foro">
+          <Key>
+            <PropertyRef Name="foro_id" />
+          </Key>
+          <Property Name="foro_id" Type="Int32" Nullable="false" />
+          <Property Name="foro_tema" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="foro_tipo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="foro_fecha_cierre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="cli_id" Type="Int32" />
+          <Property Name="tec_id" Type="Int32" />
+          <Property Name="foro_is_verificado" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Cliente" Relationship="SIGDataModel.FK_Foros_ToCliente" FromRole="Foro" ToRole="Cliente" />
+          <NavigationProperty Name="EntradaForos" Relationship="SIGDataModel.FK_EntradaForos_ToForos" FromRole="Foro" ToRole="EntradaForo" />
+          <NavigationProperty Name="Tecnico" Relationship="SIGDataModel.FK_Foros_ToTecnico" FromRole="Foro" ToRole="Tecnico" />
+        </EntityType>
+        <EntityType Name="Tecnico">
+          <Key>
+            <PropertyRef Name="tec_id" />
+          </Key>
+          <Property Name="tec_id" Type="Int32" Nullable="false" />
+          <Property Name="tec_usuario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="tec_nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="tec_apellido" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="tec_estado" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="tec_tipo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="tec_correo_electronico" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Foros" Relationship="SIGDataModel.FK_Foros_ToTecnico" FromRole="Tecnico" ToRole="Foro" />
+          <NavigationProperty Name="Tickets" Relationship="SIGDataModel.FK_Tickets_ToTecnico" FromRole="Tecnico" ToRole="Ticket" />
+        </EntityType>
+        <EntityType Name="Ticket">
+          <Key>
+            <PropertyRef Name="tk_id_ticket" />
+          </Key>
+          <Property Name="tk_id_ticket" Type="Int32" Nullable="false" />
+          <Property Name="tk_asunto" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="tk_descripción" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="tk_categoria" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="tk_fecha_creacion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="tk_fecha_vencimiento" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="tk_fecha_cierre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="tk_estado_ticket" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="cli_id" Type="Int32" />
+          <Property Name="tec_id" Type="Int32" />
+          <Property Name="ent_id" Type="Int32" />
+          <NavigationProperty Name="Cliente" Relationship="SIGDataModel.FK_Tickets_ToCliente" FromRole="Ticket" ToRole="Cliente" />
+          <NavigationProperty Name="DetallesTickets" Relationship="SIGDataModel.FK_DetallesTickets_ToTickets" FromRole="Ticket" ToRole="DetallesTicket" />
+          <NavigationProperty Name="Entidades_Externas" Relationship="SIGDataModel.FK_Tickets_ToEntidadExt" FromRole="Ticket" ToRole="Entidades_Externas" />
+          <NavigationProperty Name="Tecnico" Relationship="SIGDataModel.FK_Tickets_ToTecnico" FromRole="Ticket" ToRole="Tecnico" />
+        </EntityType>
+        <Association Name="FK_Foros_ToCliente">
+          <End Type="SIGDataModel.Cliente" Role="Cliente" Multiplicity="0..1" />
+          <End Type="SIGDataModel.Foro" Role="Foro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="cli_id" />
+            </Principal>
+            <Dependent Role="Foro">
+              <PropertyRef Name="cli_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_ToCliente">
+          <End Type="SIGDataModel.Cliente" Role="Cliente" Multiplicity="0..1" />
+          <End Type="SIGDataModel.Ticket" Role="Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="cli_id" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="cli_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetallesTickets_ToTickets">
+          <End Type="SIGDataModel.Ticket" Role="Ticket" Multiplicity="0..1" />
+          <End Type="SIGDataModel.DetallesTicket" Role="DetallesTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ticket">
+              <PropertyRef Name="tk_id_ticket" />
+            </Principal>
+            <Dependent Role="DetallesTicket">
+              <PropertyRef Name="tk_id_ticket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_ToEntidadExt">
+          <End Type="SIGDataModel.Entidades_Externas" Role="Entidades_Externas" Multiplicity="0..1" />
+          <End Type="SIGDataModel.Ticket" Role="Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entidades_Externas">
+              <PropertyRef Name="ent_id" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="ent_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EntradaForos_ToForos">
+          <End Type="SIGDataModel.Foro" Role="Foro" Multiplicity="0..1" />
+          <End Type="SIGDataModel.EntradaForo" Role="EntradaForo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Foro">
+              <PropertyRef Name="foro_id" />
+            </Principal>
+            <Dependent Role="EntradaForo">
+              <PropertyRef Name="foro_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Foros_ToTecnico">
+          <End Type="SIGDataModel.Tecnico" Role="Tecnico" Multiplicity="0..1" />
+          <End Type="SIGDataModel.Foro" Role="Foro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tecnico">
+              <PropertyRef Name="tec_id" />
+            </Principal>
+            <Dependent Role="Foro">
+              <PropertyRef Name="tec_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_ToTecnico">
+          <End Type="SIGDataModel.Tecnico" Role="Tecnico" Multiplicity="0..1" />
+          <End Type="SIGDataModel.Ticket" Role="Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tecnico">
+              <PropertyRef Name="tec_id" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="tec_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SIGDataModelStoreContainer" CdmEntityContainer="SIGDataEntities">
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="SIGDataModel.Cliente">
+              <MappingFragment StoreEntitySet="Clientes">
+                <ScalarProperty Name="cli_correo_electronico" ColumnName="cli_correo_electronico" />
+                <ScalarProperty Name="cli_apellidos" ColumnName="cli_apellidos" />
+                <ScalarProperty Name="cli_nombres" ColumnName="cli_nombres" />
+                <ScalarProperty Name="cli_usuario" ColumnName="cli_usuario" />
+                <ScalarProperty Name="cli_id" ColumnName="cli_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetallesTickets">
+            <EntityTypeMapping TypeName="SIGDataModel.DetallesTicket">
+              <MappingFragment StoreEntitySet="DetallesTickets">
+                <ScalarProperty Name="dt_comentario" ColumnName="dt_comentario" />
+                <ScalarProperty Name="dt_titulo" ColumnName="dt_titulo" />
+                <ScalarProperty Name="tk_id_ticket" ColumnName="tk_id_ticket" />
+                <ScalarProperty Name="dt_id" ColumnName="dt_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Entidades_Externas">
+            <EntityTypeMapping TypeName="SIGDataModel.Entidades_Externas">
+              <MappingFragment StoreEntitySet="Entidades_Externas">
+                <ScalarProperty Name="ent_telefono_2" ColumnName="ent_telefono_2" />
+                <ScalarProperty Name="ent_telefono_1" ColumnName="ent_telefono_1" />
+                <ScalarProperty Name="ent_direccion" ColumnName="ent_direccion" />
+                <ScalarProperty Name="ent_correo_electronico" ColumnName="ent_correo_electronico" />
+                <ScalarProperty Name="ent_nombre" ColumnName="ent_nombre" />
+                <ScalarProperty Name="ent_id" ColumnName="ent_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EntradaForos">
+            <EntityTypeMapping TypeName="SIGDataModel.EntradaForo">
+              <MappingFragment StoreEntitySet="EntradaForos">
+                <ScalarProperty Name="eforo_es_solucion" ColumnName="eforo_es_solucion" />
+                <ScalarProperty Name="eforo_descripcion" ColumnName="eforo_descripcion" />
+                <ScalarProperty Name="eforo_titulo" ColumnName="eforo_titulo" />
+                <ScalarProperty Name="eforo_id_usuario" ColumnName="eforo_id_usuario" />
+                <ScalarProperty Name="foro_id" ColumnName="foro_id" />
+                <ScalarProperty Name="eforo_id" ColumnName="eforo_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Foros">
+            <EntityTypeMapping TypeName="SIGDataModel.Foro">
+              <MappingFragment StoreEntitySet="Foros">
+                <ScalarProperty Name="foro_is_verificado" ColumnName="foro_is_verificado" />
+                <ScalarProperty Name="tec_id" ColumnName="tec_id" />
+                <ScalarProperty Name="cli_id" ColumnName="cli_id" />
+                <ScalarProperty Name="foro_fecha_cierre" ColumnName="foro_fecha_cierre" />
+                <ScalarProperty Name="foro_tipo" ColumnName="foro_tipo" />
+                <ScalarProperty Name="foro_tema" ColumnName="foro_tema" />
+                <ScalarProperty Name="foro_id" ColumnName="foro_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tecnicos">
+            <EntityTypeMapping TypeName="SIGDataModel.Tecnico">
+              <MappingFragment StoreEntitySet="Tecnicos">
+                <ScalarProperty Name="tec_correo_electronico" ColumnName="tec_correo_electronico" />
+                <ScalarProperty Name="tec_tipo" ColumnName="tec_tipo" />
+                <ScalarProperty Name="tec_estado" ColumnName="tec_estado" />
+                <ScalarProperty Name="tec_apellido" ColumnName="tec_apellido" />
+                <ScalarProperty Name="tec_nombre" ColumnName="tec_nombre" />
+                <ScalarProperty Name="tec_usuario" ColumnName="tec_usuario" />
+                <ScalarProperty Name="tec_id" ColumnName="tec_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tickets">
+            <EntityTypeMapping TypeName="SIGDataModel.Ticket">
+              <MappingFragment StoreEntitySet="Tickets">
+                <ScalarProperty Name="ent_id" ColumnName="ent_id" />
+                <ScalarProperty Name="tec_id" ColumnName="tec_id" />
+                <ScalarProperty Name="cli_id" ColumnName="cli_id" />
+                <ScalarProperty Name="tk_estado_ticket" ColumnName="tk_estado_ticket" />
+                <ScalarProperty Name="tk_fecha_cierre" ColumnName="tk_fecha_cierre" />
+                <ScalarProperty Name="tk_fecha_vencimiento" ColumnName="tk_fecha_vencimiento" />
+                <ScalarProperty Name="tk_fecha_creacion" ColumnName="tk_fecha_creacion" />
+                <ScalarProperty Name="tk_categoria" ColumnName="tk_categoria" />
+                <ScalarProperty Name="tk_descripción" ColumnName="tk_descripción" />
+                <ScalarProperty Name="tk_asunto" ColumnName="tk_asunto" />
+                <ScalarProperty Name="tk_id_ticket" ColumnName="tk_id_ticket" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

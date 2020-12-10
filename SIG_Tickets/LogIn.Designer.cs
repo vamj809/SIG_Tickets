@@ -47,7 +47,7 @@
             this.btnLogIn.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogIn.Name = "btnLogIn";
             this.btnLogIn.Size = new System.Drawing.Size(190, 41);
-            this.btnLogIn.TabIndex = 6;
+            this.btnLogIn.TabIndex = 4;
             this.btnLogIn.Text = "Iniciar Sesión";
             this.btnLogIn.UseVisualStyleBackColor = true;
             this.btnLogIn.Click += new System.EventHandler(this.btnLogIn_Click);
@@ -81,7 +81,7 @@
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(190, 41);
-            this.btnCancel.TabIndex = 7;
+            this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -93,7 +93,7 @@
             this.txtUserName.Margin = new System.Windows.Forms.Padding(4);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(209, 27);
-            this.txtUserName.TabIndex = 4;
+            this.txtUserName.TabIndex = 1;
             // 
             // txtPassword
             // 
@@ -102,7 +102,7 @@
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(209, 27);
-            this.txtPassword.TabIndex = 5;
+            this.txtPassword.TabIndex = 2;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // label3
@@ -143,7 +143,7 @@
             this.TipoCuenta.MinimumSize = new System.Drawing.Size(209, 0);
             this.TipoCuenta.Name = "TipoCuenta";
             this.TipoCuenta.Size = new System.Drawing.Size(209, 30);
-            this.TipoCuenta.TabIndex = 8;
+            this.TipoCuenta.TabIndex = 3;
             this.TipoCuenta.Text = "Técnico";
             this.TipoCuenta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.TipoCuenta.UseVisualStyleBackColor = false;
@@ -160,7 +160,7 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Tipo de Cuenta";
             // 
-            // LogIn_Client
+            // LogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -177,7 +177,7 @@
             this.Controls.Add(this.btnLogIn);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "LogIn_Client";
+            this.Name = "LogIn";
             this.Text = "Inicio de Sesión";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

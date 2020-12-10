@@ -30,7 +30,7 @@ namespace SIG_Tickets
                 UsuarioTec = DataEntities.Tecnicos.Where(s => s.tec_usuario == txtUserName.Text).FirstOrDefault();
                 if (UsuarioTec != null) {
                     //LogIn Correcto
-                    MessageBox.Show($"Técnico:  {UsuarioTec.tec_apellido}, {UsuarioTec.tec_nombre}");
+                    //MessageBox.Show($"Técnico:  {UsuarioTec.tec_apellido}, {UsuarioTec.tec_nombre}");
                     
                     Hide();
                     new GestionSolicitudes(UsuarioTec).Show();
@@ -43,10 +43,10 @@ namespace SIG_Tickets
                 UsuarioCli = DataEntities.Clientes.Where(s => s.cli_usuario == txtUserName.Text).FirstOrDefault();
                 if (UsuarioCli != null) {
                     //LogIn Correcto
-                    MessageBox.Show($"Cliente:  {UsuarioCli.cli_apellidos}, {UsuarioCli.cli_nombres}");
+                    //MessageBox.Show($"Cliente:  {UsuarioCli.cli_apellidos}, {UsuarioCli.cli_nombres}");
 
                     Hide();
-                    new SolicitudesCliente(DataEntities, UsuarioCli).Show();
+                    new SolicitudesCliente(UsuarioCli).Show();
                 } else {
                     //LogIn Incorrecto
                     MessageBox.Show("Cliente No Encontrado");

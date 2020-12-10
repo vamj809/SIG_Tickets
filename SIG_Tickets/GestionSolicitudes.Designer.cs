@@ -86,7 +86,7 @@ namespace SIG_Tickets
             // 
             this.TimeStampLabel.Name = "TimeStampLabel";
             this.TimeStampLabel.Size = new System.Drawing.Size(155, 20);
-            this.TimeStampLabel.Text = "10/12/2020 12:51 a.m.";
+            this.TimeStampLabel.Text = System.DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt");
             // 
             // GestionSolicitudes
             // 

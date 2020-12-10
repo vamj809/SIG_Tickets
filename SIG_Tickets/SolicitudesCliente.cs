@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,7 @@ namespace SIG_Tickets
         SIGDataEntities DataEntities;
         Cliente MiCliente;
 
-        public SolicitudesCliente(SIGDataEntities _DataEntities, Cliente _MiCliente)
+        public SolicitudesCliente(Cliente _MiCliente)
         {
             if (_MiCliente == null) {
                 MessageBox.Show("Acceso Inválido.");
@@ -23,10 +24,12 @@ namespace SIG_Tickets
                 return;
             }
             InitializeComponent();
-            MiCliente = _MiCliente;
-            DataEntities = _DataEntities;
-            ClientNameLabel.Text = $"¡Bienvenido {MiCliente.cli_nombres}!";
-            MyTable.DataSource = DataEntities.Tickets.Where(s => s.cli_id == MiCliente.cli_id);
+            MiCliente = _MiCliente; 
+            ClientNameLabel.Text = $"¡Bienvenido {MiCliente.cli_nombres}!                                 ";
+            DataEntities = new SIGDataEntities();
+            DataEntities.Tickets.Load();
+            TheBindingSource.DataSource = DataEntities.Tickets.
+                Local.ToBindingList().Where(s => s.cli_id == MiCliente.cli_id);
         }
 
         private void TimeStamp_Timer_Tick(object sender, EventArgs e)

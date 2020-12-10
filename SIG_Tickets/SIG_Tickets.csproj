@@ -88,11 +88,11 @@
     <Compile Include="Foro.cs">
       <DependentUpon>SIGDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="LogIn_Client.cs">
+    <Compile Include="LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LogIn_Client.Designer.cs">
-      <DependentUpon>LogIn_Client.cs</DependentUpon>
+    <Compile Include="LogIn.Designer.cs">
+      <DependentUpon>LogIn.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -117,8 +117,8 @@
     <Compile Include="Ticket.cs">
       <DependentUpon>SIGDataModel.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="LogIn_Client.resx">
-      <DependentUpon>LogIn_Client.cs</DependentUpon>
+    <EmbeddedResource Include="LogIn.resx">
+      <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

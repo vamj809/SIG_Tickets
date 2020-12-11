@@ -37,6 +37,9 @@ namespace SIG_Tickets
             this.btnEditarSolicitud = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.MyTable = new System.Windows.Forms.DataGridView();
+            this.Situacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TheStatusStrip.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MyTable)).BeginInit();
@@ -54,31 +57,32 @@ namespace SIG_Tickets
             this.TheStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AgentNameLabel,
             this.TimeStampLabel});
-            this.TheStatusStrip.Location = new System.Drawing.Point(0, 344);
+            this.TheStatusStrip.Location = new System.Drawing.Point(0, 424);
             this.TheStatusStrip.Name = "TheStatusStrip";
-            this.TheStatusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
-            this.TheStatusStrip.Size = new System.Drawing.Size(600, 22);
+            this.TheStatusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 13, 0);
+            this.TheStatusStrip.Size = new System.Drawing.Size(800, 26);
             this.TheStatusStrip.TabIndex = 10;
             this.TheStatusStrip.Text = "statusStrip1";
             // 
             // AgentNameLabel
             // 
             this.AgentNameLabel.Name = "AgentNameLabel";
-            this.AgentNameLabel.Size = new System.Drawing.Size(115, 17);
+            this.AgentNameLabel.Size = new System.Drawing.Size(145, 20);
             this.AgentNameLabel.Text = "¡Bienvenido Técnico!";
             // 
             // TimeStampLabel
             // 
             this.TimeStampLabel.Name = "TimeStampLabel";
-            this.TimeStampLabel.Size = new System.Drawing.Size(16, 17);
+            this.TimeStampLabel.Size = new System.Drawing.Size(18, 20);
             this.TimeStampLabel.Text = "...";
             // 
             // BtnCerrarSesion
             // 
             this.BtnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCerrarSesion.Location = new System.Drawing.Point(446, 11);
+            this.BtnCerrarSesion.Location = new System.Drawing.Point(595, 14);
+            this.BtnCerrarSesion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnCerrarSesion.Name = "BtnCerrarSesion";
-            this.BtnCerrarSesion.Size = new System.Drawing.Size(142, 33);
+            this.BtnCerrarSesion.Size = new System.Drawing.Size(189, 41);
             this.BtnCerrarSesion.TabIndex = 11;
             this.BtnCerrarSesion.Text = "Cerrar Sesión";
             this.BtnCerrarSesion.UseVisualStyleBackColor = true;
@@ -87,9 +91,10 @@ namespace SIG_Tickets
             // btnEditarSolicitud
             // 
             this.btnEditarSolicitud.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditarSolicitud.Location = new System.Drawing.Point(10, 11);
+            this.btnEditarSolicitud.Location = new System.Drawing.Point(13, 14);
+            this.btnEditarSolicitud.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEditarSolicitud.Name = "btnEditarSolicitud";
-            this.btnEditarSolicitud.Size = new System.Drawing.Size(142, 33);
+            this.btnEditarSolicitud.Size = new System.Drawing.Size(189, 41);
             this.btnEditarSolicitud.TabIndex = 10;
             this.btnEditarSolicitud.Text = "Editar Solicitud";
             this.btnEditarSolicitud.UseVisualStyleBackColor = true;
@@ -101,9 +106,9 @@ namespace SIG_Tickets
             this.panel1.Controls.Add(this.BtnCerrarSesion);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(600, 54);
+            this.panel1.Size = new System.Drawing.Size(800, 66);
             this.panel1.TabIndex = 16;
             // 
             // MyTable
@@ -112,27 +117,55 @@ namespace SIG_Tickets
             this.MyTable.AllowUserToDeleteRows = false;
             this.MyTable.AllowUserToOrderColumns = true;
             this.MyTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MyTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Situacion,
+            this.Estado,
+            this.Usuario});
             this.MyTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.MyTable.Location = new System.Drawing.Point(0, 56);
-            this.MyTable.Margin = new System.Windows.Forms.Padding(2);
+            this.MyTable.Location = new System.Drawing.Point(0, 70);
+            this.MyTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MyTable.MultiSelect = false;
             this.MyTable.Name = "MyTable";
             this.MyTable.ReadOnly = true;
             this.MyTable.RowHeadersWidth = 51;
             this.MyTable.RowTemplate.Height = 24;
             this.MyTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MyTable.Size = new System.Drawing.Size(600, 288);
+            this.MyTable.Size = new System.Drawing.Size(800, 354);
             this.MyTable.TabIndex = 15;
+            // 
+            // Situacion
+            // 
+            this.Situacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Situacion.HeaderText = "Situación";
+            this.Situacion.MinimumWidth = 6;
+            this.Situacion.Name = "Situacion";
+            this.Situacion.ReadOnly = true;
+            // 
+            // Estado
+            // 
+            this.Estado.HeaderText = "Estado";
+            this.Estado.MinimumWidth = 6;
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.Width = 125;
+            // 
+            // Usuario
+            // 
+            this.Usuario.HeaderText = "Técnico Asignado";
+            this.Usuario.MinimumWidth = 6;
+            this.Usuario.Name = "Usuario";
+            this.Usuario.ReadOnly = true;
+            this.Usuario.Width = 125;
             // 
             // GestionSolicitudes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.MyTable);
             this.Controls.Add(this.TheStatusStrip);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "GestionSolicitudes";
             this.Text = "Gestión de Solicitudes";
             this.TheStatusStrip.ResumeLayout(false);
@@ -153,5 +186,8 @@ namespace SIG_Tickets
         private System.Windows.Forms.Button btnEditarSolicitud;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView MyTable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Situacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
     }
 }

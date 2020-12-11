@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="cli_id" />
           </Key>
-          <Property Name="cli_id" Type="int" Nullable="false" />
+          <Property Name="cli_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="cli_usuario" Type="nvarchar" MaxLength="255" />
           <Property Name="cli_nombres" Type="nvarchar" MaxLength="255" />
           <Property Name="cli_apellidos" Type="nvarchar" MaxLength="255" />
@@ -19,7 +19,7 @@
           <Key>
             <PropertyRef Name="dt_id" />
           </Key>
-          <Property Name="dt_id" Type="int" Nullable="false" />
+          <Property Name="dt_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="tk_id_ticket" Type="int" />
           <Property Name="dt_titulo" Type="nvarchar" MaxLength="255" />
           <Property Name="dt_comentario" Type="nvarchar" MaxLength="255" />
@@ -28,7 +28,7 @@
           <Key>
             <PropertyRef Name="ent_id" />
           </Key>
-          <Property Name="ent_id" Type="int" Nullable="false" />
+          <Property Name="ent_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ent_nombre" Type="nvarchar" MaxLength="255" />
           <Property Name="ent_correo_electronico" Type="nvarchar" MaxLength="255" />
           <Property Name="ent_direccion" Type="nvarchar" MaxLength="255" />
@@ -39,7 +39,7 @@
           <Key>
             <PropertyRef Name="eforo_id" />
           </Key>
-          <Property Name="eforo_id" Type="int" Nullable="false" />
+          <Property Name="eforo_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="foro_id" Type="int" />
           <Property Name="eforo_id_usuario" Type="int" />
           <Property Name="eforo_titulo" Type="nvarchar" MaxLength="255" />
@@ -50,7 +50,7 @@
           <Key>
             <PropertyRef Name="foro_id" />
           </Key>
-          <Property Name="foro_id" Type="int" Nullable="false" />
+          <Property Name="foro_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="foro_tema" Type="nvarchar" MaxLength="255" />
           <Property Name="foro_tipo" Type="nvarchar" MaxLength="255" />
           <Property Name="foro_fecha_cierre" Type="nvarchar" MaxLength="255" />
@@ -62,7 +62,7 @@
           <Key>
             <PropertyRef Name="tec_id" />
           </Key>
-          <Property Name="tec_id" Type="int" Nullable="false" />
+          <Property Name="tec_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="tec_usuario" Type="nvarchar" MaxLength="255" />
           <Property Name="tec_nombre" Type="nvarchar" MaxLength="255" />
           <Property Name="tec_apellido" Type="nvarchar" MaxLength="255" />
@@ -74,7 +74,7 @@
           <Key>
             <PropertyRef Name="tk_id_ticket" />
           </Key>
-          <Property Name="tk_id_ticket" Type="int" Nullable="false" />
+          <Property Name="tk_id_ticket" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="tk_asunto" Type="nvarchar" MaxLength="255" />
           <Property Name="tk_descripción" Type="nvarchar" MaxLength="255" />
           <Property Name="tk_categoria" Type="nvarchar" MaxLength="255" />
@@ -252,7 +252,7 @@
           <Key>
             <PropertyRef Name="cli_id" />
           </Key>
-          <Property Name="cli_id" Type="Int32" Nullable="false" />
+          <Property Name="cli_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="cli_usuario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="cli_nombres" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="cli_apellidos" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
@@ -264,7 +264,7 @@
           <Key>
             <PropertyRef Name="dt_id" />
           </Key>
-          <Property Name="dt_id" Type="Int32" Nullable="false" />
+          <Property Name="dt_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="tk_id_ticket" Type="Int32" />
           <Property Name="dt_titulo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="dt_comentario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
@@ -274,7 +274,7 @@
           <Key>
             <PropertyRef Name="ent_id" />
           </Key>
-          <Property Name="ent_id" Type="Int32" Nullable="false" />
+          <Property Name="ent_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ent_nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="ent_correo_electronico" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="ent_direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
@@ -286,7 +286,7 @@
           <Key>
             <PropertyRef Name="eforo_id" />
           </Key>
-          <Property Name="eforo_id" Type="Int32" Nullable="false" />
+          <Property Name="eforo_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="foro_id" Type="Int32" />
           <Property Name="eforo_id_usuario" Type="Int32" />
           <Property Name="eforo_titulo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
@@ -298,7 +298,7 @@
           <Key>
             <PropertyRef Name="foro_id" />
           </Key>
-          <Property Name="foro_id" Type="Int32" Nullable="false" />
+          <Property Name="foro_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="foro_tema" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="foro_tipo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="foro_fecha_cierre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
@@ -313,7 +313,7 @@
           <Key>
             <PropertyRef Name="tec_id" />
           </Key>
-          <Property Name="tec_id" Type="Int32" Nullable="false" />
+          <Property Name="tec_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="tec_usuario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="tec_nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="tec_apellido" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
@@ -327,7 +327,7 @@
           <Key>
             <PropertyRef Name="tk_id_ticket" />
           </Key>
-          <Property Name="tk_id_ticket" Type="Int32" Nullable="false" />
+          <Property Name="tk_id_ticket" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="tk_asunto" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="tk_descripción" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="tk_categoria" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />

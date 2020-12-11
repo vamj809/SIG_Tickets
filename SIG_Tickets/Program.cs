@@ -16,7 +16,7 @@ namespace SIG_Tickets
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new EditarSolicitudes());
+            Application.Run(new LogIn());
         }
     }
 }

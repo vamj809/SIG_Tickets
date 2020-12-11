@@ -27,9 +27,17 @@ namespace SIG_Tickets
             MiCliente = _MiCliente; 
             ClientNameLabel.Text = $"¡Bienvenido {MiCliente.cli_nombres}!                                 ";
             DataEntities = new SIGDataEntities();
-            DataEntities.Tickets.Load();
-            TheBindingSource.DataSource = DataEntities.Tickets.
-                Local.ToBindingList().Where(s => s.cli_id == MiCliente.cli_id);
+            LoadRows();
+        }
+
+        private void LoadRows()
+        {
+            MyTable.Rows.Clear();
+            List<Ticket> ListaTickets = DataEntities.Tickets.Where(s => s.cli_id == MiCliente.cli_id).ToList();
+            foreach (Ticket ticket in ListaTickets) {
+                MyTable.Rows.Add(ticket.tk_asunto, ticket.tk_estado_ticket);
+            }
+            MyTable.Refresh();
         }
 
         private void TimeStamp_Timer_Tick(object sender, EventArgs e)
@@ -46,6 +54,7 @@ namespace SIG_Tickets
         private void btnCrearSolicitud_Click(object sender, EventArgs e)
         {
             new CrearSolicitudes(MiCliente).ShowDialog();
+            LoadRows();
         }
     }
 }

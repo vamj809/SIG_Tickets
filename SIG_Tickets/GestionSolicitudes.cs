@@ -12,6 +12,7 @@ namespace SIG_Tickets
 {
     public partial class GestionSolicitudes : Form
     {
+        SIGDataEntities DataEntities;
         Tecnico MiTecnico;
         public GestionSolicitudes(Tecnico _MiTecnico)
         {
@@ -23,6 +24,17 @@ namespace SIG_Tickets
             InitializeComponent();
             MiTecnico = _MiTecnico;
             AgentNameLabel.Text = $"¡Bienvenido {MiTecnico.tec_nombre}!";
+            DataEntities = new SIGDataEntities(); 
+            LoadRows();
+        }
+        private void LoadRows()
+        {
+            MyTable.Rows.Clear();
+            List<Ticket> ListaTickets = DataEntities.Tickets.ToList();
+            foreach (Ticket ticket in ListaTickets) {
+                MyTable.Rows.Add(ticket.tk_asunto, ticket.tk_estado_ticket, ticket.Tecnico?.tec_usuario);
+            }
+            MyTable.Refresh();
         }
 
         private void TimeStamp_Timer_Tick(object sender, EventArgs e)
@@ -32,8 +44,8 @@ namespace SIG_Tickets
 
         private void btnEditarSolicitud_Click(object sender, EventArgs e)
         {
-            //MyTable.SelectedRows[0].Cells["tk_id_ticket"].Value;
-            new EditarSolicitudes().ShowDialog();
+            new EditarSolicitudes((int)MyTable.SelectedRows[0].Cells["tk_id_ticket"].Value, null, MiTecnico).ShowDialog();
+            LoadRows();
         }
 
         private void BtnCerrarSesion_Click_1(object sender, EventArgs e)

@@ -37,6 +37,7 @@ namespace SIG_Tickets
             this.btnEditarSolicitud = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.MyTable = new System.Windows.Forms.DataGridView();
+            this.tk_id_ticket = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Situacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,7 +81,7 @@ namespace SIG_Tickets
             // 
             this.BtnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCerrarSesion.Location = new System.Drawing.Point(595, 14);
-            this.BtnCerrarSesion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnCerrarSesion.Margin = new System.Windows.Forms.Padding(4);
             this.BtnCerrarSesion.Name = "BtnCerrarSesion";
             this.BtnCerrarSesion.Size = new System.Drawing.Size(189, 41);
             this.BtnCerrarSesion.TabIndex = 11;
@@ -92,7 +93,7 @@ namespace SIG_Tickets
             // 
             this.btnEditarSolicitud.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditarSolicitud.Location = new System.Drawing.Point(13, 14);
-            this.btnEditarSolicitud.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditarSolicitud.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditarSolicitud.Name = "btnEditarSolicitud";
             this.btnEditarSolicitud.Size = new System.Drawing.Size(189, 41);
             this.btnEditarSolicitud.TabIndex = 10;
@@ -118,6 +119,7 @@ namespace SIG_Tickets
             this.MyTable.AllowUserToOrderColumns = true;
             this.MyTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MyTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tk_id_ticket,
             this.Situacion,
             this.Estado,
             this.Usuario});
@@ -132,6 +134,15 @@ namespace SIG_Tickets
             this.MyTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.MyTable.Size = new System.Drawing.Size(800, 354);
             this.MyTable.TabIndex = 15;
+            // 
+            // tk_id_ticket
+            // 
+            this.tk_id_ticket.HeaderText = "ID Ticket";
+            this.tk_id_ticket.MinimumWidth = 6;
+            this.tk_id_ticket.Name = "tk_id_ticket";
+            this.tk_id_ticket.ReadOnly = true;
+            this.tk_id_ticket.Visible = false;
+            this.tk_id_ticket.Width = 125;
             // 
             // Situacion
             // 
@@ -186,6 +197,7 @@ namespace SIG_Tickets
         private System.Windows.Forms.Button btnEditarSolicitud;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView MyTable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tk_id_ticket;
         private System.Windows.Forms.DataGridViewTextBoxColumn Situacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;

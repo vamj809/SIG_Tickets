@@ -35,7 +35,7 @@ namespace SIG_Tickets
             MyTable.Rows.Clear();
             List<Ticket> ListaTickets = DataEntities.Tickets.Where(s => s.cli_id == MiCliente.cli_id).ToList();
             foreach (Ticket ticket in ListaTickets) {
-                MyTable.Rows.Add(ticket.tk_asunto, ticket.tk_estado_ticket);
+                MyTable.Rows.Add(ticket.tk_id_ticket, ticket.tk_asunto, ticket.tk_estado_ticket);
             }
             MyTable.Refresh();
         }

@@ -43,6 +43,8 @@
             this.msgDataGrid = new System.Windows.Forms.DataGridView();
             this.txtComentario = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Comentario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.msgDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +56,7 @@
             "Compra de Equipos",
             "Instalación de Programas"});
             this.CbCategoria.Location = new System.Drawing.Point(135, 20);
-            this.CbCategoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CbCategoria.Margin = new System.Windows.Forms.Padding(4);
             this.CbCategoria.Name = "CbCategoria";
             this.CbCategoria.Size = new System.Drawing.Size(312, 24);
             this.CbCategoria.TabIndex = 26;
@@ -115,7 +117,7 @@
             this.BtnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCancelar.Location = new System.Drawing.Point(687, 406);
-            this.BtnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(189, 41);
             this.BtnCancelar.TabIndex = 30;
@@ -128,7 +130,7 @@
             this.btnEditarSolicitud.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnEditarSolicitud.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditarSolicitud.Location = new System.Drawing.Point(16, 406);
-            this.btnEditarSolicitud.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditarSolicitud.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditarSolicitud.Name = "btnEditarSolicitud";
             this.btnEditarSolicitud.Size = new System.Drawing.Size(189, 41);
             this.btnEditarSolicitud.TabIndex = 29;
@@ -144,7 +146,7 @@
             "Cerrado",
             "Inactivo"});
             this.CbEstado.Location = new System.Drawing.Point(563, 20);
-            this.CbEstado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CbEstado.Margin = new System.Windows.Forms.Padding(4);
             this.CbEstado.Name = "CbEstado";
             this.CbEstado.Size = new System.Drawing.Size(312, 24);
             this.CbEstado.TabIndex = 34;
@@ -181,13 +183,24 @@
             // 
             // msgDataGrid
             // 
+            this.msgDataGrid.AllowUserToAddRows = false;
             this.msgDataGrid.AllowUserToDeleteRows = false;
+            this.msgDataGrid.AllowUserToResizeColumns = false;
+            this.msgDataGrid.AllowUserToResizeRows = false;
             this.msgDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.msgDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Usuario,
+            this.Comentario});
             this.msgDataGrid.Location = new System.Drawing.Point(504, 63);
+            this.msgDataGrid.MultiSelect = false;
             this.msgDataGrid.Name = "msgDataGrid";
-            this.msgDataGrid.ReadOnly = true;
             this.msgDataGrid.RowHeadersWidth = 51;
             this.msgDataGrid.RowTemplate.Height = 24;
+            this.msgDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.msgDataGrid.ShowCellErrors = false;
+            this.msgDataGrid.ShowCellToolTips = false;
+            this.msgDataGrid.ShowEditingIcon = false;
+            this.msgDataGrid.ShowRowErrors = false;
             this.msgDataGrid.Size = new System.Drawing.Size(371, 174);
             this.msgDataGrid.TabIndex = 38;
             // 
@@ -212,6 +225,20 @@
             this.label6.TabIndex = 40;
             this.label6.Text = "Nuevo Comentario: *";
             // 
+            // Usuario
+            // 
+            this.Usuario.HeaderText = "Usuario";
+            this.Usuario.MinimumWidth = 6;
+            this.Usuario.Name = "Usuario";
+            this.Usuario.Width = 125;
+            // 
+            // Comentario
+            // 
+            this.Comentario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Comentario.HeaderText = "Comentario";
+            this.Comentario.MinimumWidth = 6;
+            this.Comentario.Name = "Comentario";
+            // 
             // EditarSolicitudes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -232,7 +259,7 @@
             this.Controls.Add(this.TxtTitulo);
             this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.btnEditarSolicitud);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EditarSolicitudes";
             this.Text = "EditarSolicitudes";
             ((System.ComponentModel.ISupportInitialize)(this.msgDataGrid)).EndInit();
@@ -258,5 +285,7 @@
         private System.Windows.Forms.DataGridView msgDataGrid;
         private System.Windows.Forms.TextBox txtComentario;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Comentario;
     }
 }

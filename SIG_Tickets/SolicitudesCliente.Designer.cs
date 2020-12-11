@@ -37,6 +37,7 @@ namespace SIG_Tickets
             this.TimeStamp_Timer = new System.Windows.Forms.Timer(this.components);
             this.MyTable = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tk_id_ticket = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tk_asunto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tk_estado_ticket = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TheStatusStrip.SuspendLayout();
@@ -74,7 +75,7 @@ namespace SIG_Tickets
             // 
             this.btnCrearSolicitud.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrearSolicitud.Location = new System.Drawing.Point(13, 14);
-            this.btnCrearSolicitud.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCrearSolicitud.Margin = new System.Windows.Forms.Padding(4);
             this.btnCrearSolicitud.Name = "btnCrearSolicitud";
             this.btnCrearSolicitud.Size = new System.Drawing.Size(189, 41);
             this.btnCrearSolicitud.TabIndex = 10;
@@ -87,7 +88,7 @@ namespace SIG_Tickets
             this.BtnCerrarSesion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCerrarSesion.Location = new System.Drawing.Point(547, 13);
-            this.BtnCerrarSesion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnCerrarSesion.Margin = new System.Windows.Forms.Padding(4);
             this.BtnCerrarSesion.Name = "BtnCerrarSesion";
             this.BtnCerrarSesion.Size = new System.Drawing.Size(189, 41);
             this.BtnCerrarSesion.TabIndex = 11;
@@ -111,6 +112,7 @@ namespace SIG_Tickets
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MyTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MyTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tk_id_ticket,
             this.tk_asunto,
             this.tk_estado_ticket});
             this.MyTable.Location = new System.Drawing.Point(0, 72);
@@ -135,6 +137,15 @@ namespace SIG_Tickets
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(749, 68);
             this.panel1.TabIndex = 13;
+            // 
+            // tk_id_ticket
+            // 
+            this.tk_id_ticket.HeaderText = "ID Ticket";
+            this.tk_id_ticket.MinimumWidth = 6;
+            this.tk_id_ticket.Name = "tk_id_ticket";
+            this.tk_id_ticket.ReadOnly = true;
+            this.tk_id_ticket.Visible = false;
+            this.tk_id_ticket.Width = 125;
             // 
             // tk_asunto
             // 
@@ -181,6 +192,7 @@ namespace SIG_Tickets
         private System.Windows.Forms.Timer TimeStamp_Timer;
         private System.Windows.Forms.DataGridView MyTable;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tk_id_ticket;
         private System.Windows.Forms.DataGridViewTextBoxColumn tk_asunto;
         private System.Windows.Forms.DataGridViewTextBoxColumn tk_estado_ticket;
     }

@@ -32,7 +32,7 @@ namespace SIG_Tickets
             MyTable.Rows.Clear();
             List<Ticket> ListaTickets = DataEntities.Tickets.ToList();
             foreach (Ticket ticket in ListaTickets) {
-                MyTable.Rows.Add(ticket.tk_asunto, ticket.tk_estado_ticket, ticket.Tecnico?.tec_usuario);
+                MyTable.Rows.Add(ticket.tk_id_ticket, ticket.tk_asunto, ticket.tk_estado_ticket, ticket.Tecnico?.tec_usuario);
             }
             MyTable.Refresh();
         }
@@ -44,7 +44,7 @@ namespace SIG_Tickets
 
         private void btnEditarSolicitud_Click(object sender, EventArgs e)
         {
-            new EditarSolicitudes((int)MyTable.SelectedRows[0].Cells["tk_id_ticket"].Value, null, MiTecnico).ShowDialog();
+            new EditarSolicitudes((int)MyTable.SelectedRows[0].Cells[0].Value, null, MiTecnico).ShowDialog();
             LoadRows();
         }
 

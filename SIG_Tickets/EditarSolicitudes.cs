@@ -37,6 +37,13 @@ namespace SIG_Tickets
             TxtFechaCreacion.Text = MiTicket.tk_fecha_creacion;
             CbEstado.Text = MiTicket.tk_estado_ticket;
             // Pon la tabla. gracias. bye
+            msgDataGrid.Rows.Clear();
+            List<DetallesTicket> ListaDetalleTickets = 
+                DataEntities.DetallesTickets.Where(s => s.tk_id_ticket == MiTicket.tk_id_ticket).ToList();
+            foreach (DetallesTicket detallesTicket in ListaDetalleTickets) {
+                msgDataGrid.Rows.Add(detallesTicket.dt_titulo, detallesTicket.dt_comentario);
+            }
+            msgDataGrid.Refresh();
         }
 
         private void btnEditarSolicitud_Click(object sender, EventArgs e)

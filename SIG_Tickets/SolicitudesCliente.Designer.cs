@@ -50,46 +50,43 @@ namespace SIG_Tickets
             this.TheStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ClientNameLabel,
             this.TimeStampLabel});
-            this.TheStatusStrip.Location = new System.Drawing.Point(0, 348);
+            this.TheStatusStrip.Location = new System.Drawing.Point(0, 282);
             this.TheStatusStrip.Name = "TheStatusStrip";
-            this.TheStatusStrip.Size = new System.Drawing.Size(838, 26);
+            this.TheStatusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
+            this.TheStatusStrip.Size = new System.Drawing.Size(628, 22);
             this.TheStatusStrip.TabIndex = 9;
             this.TheStatusStrip.Text = "statusStrip1";
             // 
             // ClientNameLabel
             // 
             this.ClientNameLabel.Name = "ClientNameLabel";
-            this.ClientNameLabel.Size = new System.Drawing.Size(141, 20);
+            this.ClientNameLabel.Size = new System.Drawing.Size(112, 17);
             this.ClientNameLabel.Text = "¡Bienvenido Cliente!";
             this.ClientNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // TimeStampLabel
             // 
             this.TimeStampLabel.Name = "TimeStampLabel";
-            this.TimeStampLabel.Padding = new System.Windows.Forms.Padding(490, 0, 0, 0);
-            this.TimeStampLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.TimeStampLabel.Size = new System.Drawing.Size(668, 20);
-            this.TimeStampLabel.Text = "10/12/2020 01:42:06 a. m.";
-            this.TimeStampLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.TimeStampLabel.Size = new System.Drawing.Size(16, 17);
+            this.TimeStampLabel.Text = "...";
             // 
             // btnCrearSolicitud
             // 
             this.btnCrearSolicitud.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrearSolicitud.Location = new System.Drawing.Point(13, 13);
-            this.btnCrearSolicitud.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCrearSolicitud.Location = new System.Drawing.Point(10, 11);
             this.btnCrearSolicitud.Name = "btnCrearSolicitud";
-            this.btnCrearSolicitud.Size = new System.Drawing.Size(190, 41);
+            this.btnCrearSolicitud.Size = new System.Drawing.Size(142, 33);
             this.btnCrearSolicitud.TabIndex = 10;
             this.btnCrearSolicitud.Text = "Crear Solicitud";
             this.btnCrearSolicitud.UseVisualStyleBackColor = true;
+            this.btnCrearSolicitud.Click += new System.EventHandler(this.btnCrearSolicitud_Click);
             // 
             // BtnCerrarSesion
             // 
             this.BtnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCerrarSesion.Location = new System.Drawing.Point(624, 13);
-            this.BtnCerrarSesion.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnCerrarSesion.Location = new System.Drawing.Point(468, 11);
             this.BtnCerrarSesion.Name = "BtnCerrarSesion";
-            this.BtnCerrarSesion.Size = new System.Drawing.Size(190, 41);
+            this.BtnCerrarSesion.Size = new System.Drawing.Size(142, 33);
             this.BtnCerrarSesion.TabIndex = 11;
             this.BtnCerrarSesion.Text = "Cerrar Sesión";
             this.BtnCerrarSesion.UseVisualStyleBackColor = true;
@@ -109,13 +106,14 @@ namespace SIG_Tickets
             this.MyTable.AutoGenerateColumns = false;
             this.MyTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MyTable.DataSource = this.TheBindingSource;
-            this.MyTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MyTable.Location = new System.Drawing.Point(0, 0);
+            this.MyTable.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.MyTable.Location = new System.Drawing.Point(0, 58);
+            this.MyTable.Margin = new System.Windows.Forms.Padding(2);
             this.MyTable.Name = "MyTable";
             this.MyTable.ReadOnly = true;
             this.MyTable.RowHeadersWidth = 51;
             this.MyTable.RowTemplate.Height = 24;
-            this.MyTable.Size = new System.Drawing.Size(838, 348);
+            this.MyTable.Size = new System.Drawing.Size(628, 224);
             this.MyTable.TabIndex = 12;
             // 
             // panel1
@@ -124,18 +122,20 @@ namespace SIG_Tickets
             this.panel1.Controls.Add(this.BtnCerrarSesion);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(838, 67);
+            this.panel1.Size = new System.Drawing.Size(628, 54);
             this.panel1.TabIndex = 13;
             // 
             // SolicitudesCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(838, 374);
+            this.ClientSize = new System.Drawing.Size(628, 304);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.MyTable);
             this.Controls.Add(this.TheStatusStrip);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SolicitudesCliente";
             this.Text = "Mis Solicitudes";
             this.TheStatusStrip.ResumeLayout(false);

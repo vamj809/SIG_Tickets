@@ -12,9 +12,34 @@ namespace SIG_Tickets
 {
     public partial class CrearSolicitudes : Form
     {
-        public CrearSolicitudes()
+        SIGDataEntities DataEntities;
+        Cliente MiCliente;
+        Tecnico MiTecnico;
+        public CrearSolicitudes(Cliente cliente = null, Tecnico tecnico = null)
         {
             InitializeComponent();
+            DataEntities = new SIGDataEntities();
+            MiCliente = cliente;
+            MiTecnico = tecnico;
+        }
+
+        private void btnCrearSolicitud_Click(object sender, EventArgs e)
+        {
+            DataEntities.Tickets.Add(
+                new Ticket()
+                {
+                    tk_categoria = comboBox1.Text,
+                    tk_asunto = textBox1.Text,
+                    tk_descripción = textBox2.Text,
+                    cli_id = MiCliente?.cli_id, //Si es un cliente agregalo, si no lo es, coloca null
+                    tec_id = MiTecnico?.tec_id //Si es un técnico agrégalo, si no lo es, coloca null
+                });
+            DataEntities.SaveChanges();
+        }
+
+        private void BtnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

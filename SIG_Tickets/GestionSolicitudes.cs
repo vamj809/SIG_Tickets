@@ -30,7 +30,13 @@ namespace SIG_Tickets
             TimeStampLabel.Text = DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt");
         }
 
-        private void BtnCerrarSesion_Click(object sender, EventArgs e)
+        private void btnEditarSolicitud_Click(object sender, EventArgs e)
+        {
+            //MyTable.SelectedRows[0].Cells["tk_id_ticket"].Value;
+            new EditarSolicitudes().ShowDialog();
+        }
+
+        private void BtnCerrarSesion_Click_1(object sender, EventArgs e)
         {
             Hide();
             new LogIn().Show();

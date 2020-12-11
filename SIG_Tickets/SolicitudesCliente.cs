@@ -42,5 +42,10 @@ namespace SIG_Tickets
             Hide();
             new LogIn().Show();
         }
+
+        private void btnCrearSolicitud_Click(object sender, EventArgs e)
+        {
+            new CrearSolicitudes(MiCliente).ShowDialog();
+        }
     }
 }

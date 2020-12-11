@@ -85,6 +85,12 @@
     <Compile Include="DetallesTicket.cs">
       <DependentUpon>SIGDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EditarSolicitudes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditarSolicitudes.Designer.cs">
+      <DependentUpon>EditarSolicitudes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entidades_Externas.cs">
       <DependentUpon>SIGDataModel.tt</DependentUpon>
     </Compile>
@@ -137,6 +143,9 @@
     </Compile>
     <EmbeddedResource Include="CrearSolicitudes.resx">
       <DependentUpon>CrearSolicitudes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditarSolicitudes.resx">
+      <DependentUpon>EditarSolicitudes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionSolicitudes.resx">
       <DependentUpon>GestionSolicitudes.cs</DependentUpon>

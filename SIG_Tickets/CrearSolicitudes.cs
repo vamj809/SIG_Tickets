@@ -32,7 +32,7 @@ namespace SIG_Tickets
                     tk_descripción = textBox2.Text,
                     cli_id = MiCliente?.cli_id, //Si es un cliente agregalo, si no lo es, coloca null
                     tec_id = MiTecnico?.tec_id, //Si es un técnico agrégalo, si no lo es, coloca null
-                    tk_fecha_creacion = DateTime.Now.Date.ToString()
+                    tk_fecha_creacion = DateTime.Now.ToString()
                 });
             DataEntities.SaveChanges();
             MessageBox.Show(this, "Su Ticket ha sido creado!", "Operación Exitosa!", MessageBoxButtons.OK, MessageBoxIcon.Information);

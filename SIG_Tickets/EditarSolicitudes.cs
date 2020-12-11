@@ -35,8 +35,11 @@ namespace SIG_Tickets
             TxtTitulo.Text = MiTicket.tk_asunto;
             TxtDescripcion.Text = MiTicket.tk_descripción;
             TxtFechaCreacion.Text = MiTicket.tk_fecha_creacion;
-            CbEstado.Text = MiTicket.tk_estado_ticket;
-            // Pon la tabla. gracias. bye
+            if (MiTicket.tk_estado_ticket == null)
+                CbEstado.Text = "Abierto";
+            else
+                CbEstado.Text = MiTicket.tk_estado_ticket;
+            /////////////////////////// Carga el listado de Comentarios
             msgDataGrid.Rows.Clear();
             List<DetallesTicket> ListaDetalleTickets = 
                 DataEntities.DetallesTickets.Where(s => s.tk_id_ticket == MiTicket.tk_id_ticket).ToList();
@@ -44,6 +47,10 @@ namespace SIG_Tickets
                 msgDataGrid.Rows.Add(detallesTicket.dt_titulo, detallesTicket.dt_comentario);
             }
             msgDataGrid.Refresh();
+            ////////////////////////// Change Permissions
+            if(MiTecnico == null) {
+                CbEstado.Enabled = false;
+            }
         }
 
         private void btnEditarSolicitud_Click(object sender, EventArgs e)
@@ -57,9 +64,9 @@ namespace SIG_Tickets
             //Verifica si es el cliente o el tecnico que agrega el mensaje.
             string TipoUsuario;
             if (MiCliente == null)
-                TipoUsuario = "Cliente";
-            else
                 TipoUsuario = "Técnico";
+            else
+                TipoUsuario = "Cliente";
 
             //Prepara los datos para guardarlos en la BD
             MiTicket.tk_categoria = CbCategoria.Text;
@@ -76,7 +83,6 @@ namespace SIG_Tickets
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
-            DataEntities.Dispose();
             Close();
         }
     }

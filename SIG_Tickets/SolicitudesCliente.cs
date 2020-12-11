@@ -56,5 +56,11 @@ namespace SIG_Tickets
             new CrearSolicitudes(MiCliente).ShowDialog();
             LoadRows();
         }
+
+        private void MyTable_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            new EditarSolicitudes((int)MyTable.SelectedRows[0].Cells[0].Value, MiCliente).ShowDialog();
+            LoadRows();
+        }
     }
 }

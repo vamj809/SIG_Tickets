@@ -125,6 +125,7 @@ namespace SIG_Tickets
             this.MyTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.MyTable.Size = new System.Drawing.Size(749, 319);
             this.MyTable.TabIndex = 12;
+            this.MyTable.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MyTable_CellDoubleClick);
             // 
             // panel1
             // 

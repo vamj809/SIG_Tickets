@@ -53,5 +53,11 @@ namespace SIG_Tickets
             Hide();
             new LogIn().Show();
         }
+
+        private void MyTable_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            new EditarSolicitudes((int)MyTable.SelectedRows[0].Cells[0].Value, null, MiTecnico).ShowDialog();
+            LoadRows();
+        }
     }
 }

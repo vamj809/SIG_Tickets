@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.CbCategoria = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.TxtDescripcion = new System.Windows.Forms.TextBox();
@@ -191,11 +192,21 @@
             this.msgDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Usuario,
             this.Comentario});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.msgDataGrid.DefaultCellStyle = dataGridViewCellStyle1;
             this.msgDataGrid.Location = new System.Drawing.Point(504, 63);
             this.msgDataGrid.MultiSelect = false;
             this.msgDataGrid.Name = "msgDataGrid";
-            this.msgDataGrid.RowHeadersWidth = 51;
-            this.msgDataGrid.RowTemplate.Height = 24;
+            this.msgDataGrid.ReadOnly = true;
+            this.msgDataGrid.RowHeadersWidth = 10;
+            this.msgDataGrid.RowTemplate.Height = 48;
+            this.msgDataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.msgDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.msgDataGrid.ShowCellErrors = false;
             this.msgDataGrid.ShowCellToolTips = false;
@@ -206,7 +217,6 @@
             // 
             // txtComentario
             // 
-            this.txtComentario.Enabled = false;
             this.txtComentario.Location = new System.Drawing.Point(504, 270);
             this.txtComentario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtComentario.Multiline = true;
@@ -230,7 +240,8 @@
             this.Usuario.HeaderText = "Usuario";
             this.Usuario.MinimumWidth = 6;
             this.Usuario.Name = "Usuario";
-            this.Usuario.Width = 125;
+            this.Usuario.ReadOnly = true;
+            this.Usuario.Width = 75;
             // 
             // Comentario
             // 
@@ -238,6 +249,7 @@
             this.Comentario.HeaderText = "Comentario";
             this.Comentario.MinimumWidth = 6;
             this.Comentario.Name = "Comentario";
+            this.Comentario.ReadOnly = true;
             // 
             // EditarSolicitudes
             // 

@@ -134,6 +134,7 @@ namespace SIG_Tickets
             this.MyTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.MyTable.Size = new System.Drawing.Size(800, 354);
             this.MyTable.TabIndex = 15;
+            this.MyTable.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MyTable_CellContentDoubleClick);
             // 
             // tk_id_ticket
             // 

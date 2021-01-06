@@ -29,10 +29,11 @@ namespace SIG_Tickets
         }
         private void LoadRows()
         {
+            DataEntities = new SIGDataEntities();
             MyTable.Rows.Clear();
-            List<Ticket> ListaTickets = DataEntities.Tickets.ToList();
+            List<Ticket> ListaTickets = DataEntities.Tickets.OrderBy(s => s.tk_estado_ticket).ToList();
             foreach (Ticket ticket in ListaTickets) {
-                MyTable.Rows.Add(ticket.tk_id_ticket, ticket.tk_asunto, ticket.tk_estado_ticket, ticket.Tecnico?.tec_usuario);
+                MyTable.Rows.Add(ticket.tk_id_ticket, ticket.tk_asunto, ticket.tk_estado_ticket, ticket.Tecnico?.tec_nombre + " " + ticket.Tecnico?.tec_apellido);
             }
             MyTable.Refresh();
         }
@@ -54,7 +55,7 @@ namespace SIG_Tickets
             new LogIn().Show();
         }
 
-        private void MyTable_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void MyTable_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             new EditarSolicitudes((int)MyTable.SelectedRows[0].Cells[0].Value, null, MiTecnico).ShowDialog();
             LoadRows();

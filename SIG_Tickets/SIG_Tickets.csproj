@@ -207,10 +207,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\DBTickets.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\DBTickets_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>DBTickets.mdf</DependentUpon>
     </Content>
     <Content Include="SIGDataModel.Context.tt">

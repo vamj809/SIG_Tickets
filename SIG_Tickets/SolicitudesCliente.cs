@@ -32,10 +32,17 @@ namespace SIG_Tickets
 
         private void LoadRows()
         {
+            string tecnico;
+
             MyTable.Rows.Clear();
-            List<Ticket> ListaTickets = DataEntities.Tickets.Where(s => s.cli_id == MiCliente.cli_id).ToList();
+            List<Ticket> ListaTickets = DataEntities.Tickets.Where(s => s.cli_id == MiCliente.cli_id && s.tk_estado_ticket != "Cerrado").OrderBy(s => s.tk_estado_ticket).ToList();
             foreach (Ticket ticket in ListaTickets) {
-                MyTable.Rows.Add(ticket.tk_id_ticket, ticket.tk_asunto, ticket.tk_estado_ticket);
+                if (ticket.Tecnico == null)
+                    tecnico = "Sin Asignar";
+                else
+                    tecnico = ticket.Tecnico?.tec_nombre + " " + ticket.Tecnico?.tec_apellido;
+                
+                MyTable.Rows.Add(ticket.tk_id_ticket, ticket.tk_asunto, ticket.tk_estado_ticket, tecnico);
             }
             MyTable.Refresh();
         }

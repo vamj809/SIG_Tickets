@@ -5,8 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="SIGDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\VAMJ809\SOURCE\REPOS\SIG_TICKETS\SIG_TICKETS\RESOURCES\DBTICKETS.MDF.dbo.Clientes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Clientes">
           <Key>
             <PropertyRef Name="cli_id" />
@@ -17,8 +15,6 @@ warning 6002: The table/view 'C:\USERS\VAMJ809\SOURCE\REPOS\SIG_TICKETS\SIG_TICK
           <Property Name="cli_apellidos" Type="nvarchar" MaxLength="255" />
           <Property Name="cli_correo_electronico" Type="nvarchar" MaxLength="255" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\VAMJ809\SOURCE\REPOS\SIG_TICKETS\SIG_TICKETS\RESOURCES\DBTICKETS.MDF.dbo.DetallesTickets' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="DetallesTickets">
           <Key>
             <PropertyRef Name="dt_id" />
@@ -28,8 +24,6 @@ warning 6002: The table/view 'C:\USERS\VAMJ809\SOURCE\REPOS\SIG_TICKETS\SIG_TICK
           <Property Name="dt_titulo" Type="nvarchar" MaxLength="255" />
           <Property Name="dt_comentario" Type="nvarchar" MaxLength="255" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\VAMJ809\SOURCE\REPOS\SIG_TICKETS\SIG_TICKETS\RESOURCES\DBTICKETS.MDF.dbo.Entidades_Externas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Entidades_Externas">
           <Key>
             <PropertyRef Name="ent_id" />
@@ -41,8 +35,6 @@ warning 6002: The table/view 'C:\USERS\VAMJ809\SOURCE\REPOS\SIG_TICKETS\SIG_TICK
           <Property Name="ent_telefono_1" Type="nvarchar" MaxLength="255" />
           <Property Name="ent_telefono_2" Type="nvarchar" MaxLength="255" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\VAMJ809\SOURCE\REPOS\SIG_TICKETS\SIG_TICKETS\RESOURCES\DBTICKETS.MDF.dbo.EntradaForos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="EntradaForos">
           <Key>
             <PropertyRef Name="eforo_id" />
@@ -54,8 +46,6 @@ warning 6002: The table/view 'C:\USERS\VAMJ809\SOURCE\REPOS\SIG_TICKETS\SIG_TICK
           <Property Name="eforo_descripcion" Type="nvarchar" MaxLength="255" />
           <Property Name="eforo_es_solucion" Type="nvarchar" MaxLength="255" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\VAMJ809\SOURCE\REPOS\SIG_TICKETS\SIG_TICKETS\RESOURCES\DBTICKETS.MDF.dbo.Foros' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Foros">
           <Key>
             <PropertyRef Name="foro_id" />
@@ -68,8 +58,6 @@ warning 6002: The table/view 'C:\USERS\VAMJ809\SOURCE\REPOS\SIG_TICKETS\SIG_TICK
           <Property Name="tec_id" Type="int" />
           <Property Name="foro_is_verificado" Type="nvarchar" MaxLength="255" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\VAMJ809\SOURCE\REPOS\SIG_TICKETS\SIG_TICKETS\RESOURCES\DBTICKETS.MDF.dbo.Tecnicos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Tecnicos">
           <Key>
             <PropertyRef Name="tec_id" />
@@ -82,8 +70,6 @@ warning 6002: The table/view 'C:\USERS\VAMJ809\SOURCE\REPOS\SIG_TICKETS\SIG_TICK
           <Property Name="tec_tipo" Type="nvarchar" MaxLength="255" />
           <Property Name="tec_correo_electronico" Type="nvarchar" MaxLength="255" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\VAMJ809\SOURCE\REPOS\SIG_TICKETS\SIG_TICKETS\RESOURCES\DBTICKETS.MDF.dbo.Tickets' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Tickets">
           <Key>
             <PropertyRef Name="tk_id_ticket" />
@@ -100,81 +86,46 @@ warning 6002: The table/view 'C:\USERS\VAMJ809\SOURCE\REPOS\SIG_TICKETS\SIG_TICK
           <Property Name="tec_id" Type="int" />
           <Property Name="ent_id" Type="int" />
         </EntityType>
+        <Association Name="FK_Tickets_ToClientes">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="cli_id" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="cli_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_ToTecnicos">
+          <End Role="Tecnicos" Type="Self.Tecnicos" Multiplicity="0..1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tecnicos">
+              <PropertyRef Name="tec_id" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="tec_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="SIGDataModelStoreContainer">
-          <EntitySet Name="Clientes" EntityType="Self.Clientes" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Clientes].[cli_id] AS [cli_id], 
-    [Clientes].[cli_usuario] AS [cli_usuario], 
-    [Clientes].[cli_nombres] AS [cli_nombres], 
-    [Clientes].[cli_apellidos] AS [cli_apellidos], 
-    [Clientes].[cli_correo_electronico] AS [cli_correo_electronico]
-    FROM [dbo].[Clientes] AS [Clientes]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="DetallesTickets" EntityType="Self.DetallesTickets" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [DetallesTickets].[dt_id] AS [dt_id], 
-    [DetallesTickets].[tk_id_ticket] AS [tk_id_ticket], 
-    [DetallesTickets].[dt_titulo] AS [dt_titulo], 
-    [DetallesTickets].[dt_comentario] AS [dt_comentario]
-    FROM [dbo].[DetallesTickets] AS [DetallesTickets]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Entidades_Externas" EntityType="Self.Entidades_Externas" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Entidades_Externas].[ent_id] AS [ent_id], 
-    [Entidades_Externas].[ent_nombre] AS [ent_nombre], 
-    [Entidades_Externas].[ent_correo_electronico] AS [ent_correo_electronico], 
-    [Entidades_Externas].[ent_direccion] AS [ent_direccion], 
-    [Entidades_Externas].[ent_telefono_1] AS [ent_telefono_1], 
-    [Entidades_Externas].[ent_telefono_2] AS [ent_telefono_2]
-    FROM [dbo].[Entidades_Externas] AS [Entidades_Externas]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="EntradaForos" EntityType="Self.EntradaForos" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [EntradaForos].[eforo_id] AS [eforo_id], 
-    [EntradaForos].[foro_id] AS [foro_id], 
-    [EntradaForos].[eforo_id_usuario] AS [eforo_id_usuario], 
-    [EntradaForos].[eforo_titulo] AS [eforo_titulo], 
-    [EntradaForos].[eforo_descripcion] AS [eforo_descripcion], 
-    [EntradaForos].[eforo_es_solucion] AS [eforo_es_solucion]
-    FROM [dbo].[EntradaForos] AS [EntradaForos]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Foros" EntityType="Self.Foros" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Foros].[foro_id] AS [foro_id], 
-    [Foros].[foro_tema] AS [foro_tema], 
-    [Foros].[foro_tipo] AS [foro_tipo], 
-    [Foros].[foro_fecha_cierre] AS [foro_fecha_cierre], 
-    [Foros].[cli_id] AS [cli_id], 
-    [Foros].[tec_id] AS [tec_id], 
-    [Foros].[foro_is_verificado] AS [foro_is_verificado]
-    FROM [dbo].[Foros] AS [Foros]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Tecnicos" EntityType="Self.Tecnicos" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Tecnicos].[tec_id] AS [tec_id], 
-    [Tecnicos].[tec_usuario] AS [tec_usuario], 
-    [Tecnicos].[tec_nombre] AS [tec_nombre], 
-    [Tecnicos].[tec_apellido] AS [tec_apellido], 
-    [Tecnicos].[tec_estado] AS [tec_estado], 
-    [Tecnicos].[tec_tipo] AS [tec_tipo], 
-    [Tecnicos].[tec_correo_electronico] AS [tec_correo_electronico]
-    FROM [dbo].[Tecnicos] AS [Tecnicos]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Tickets" EntityType="Self.Tickets" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Tickets].[tk_id_ticket] AS [tk_id_ticket], 
-    [Tickets].[tk_asunto] AS [tk_asunto], 
-    [Tickets].[tk_descripción] AS [tk_descripción], 
-    [Tickets].[tk_categoria] AS [tk_categoria], 
-    [Tickets].[tk_fecha_creacion] AS [tk_fecha_creacion], 
-    [Tickets].[tk_fecha_vencimiento] AS [tk_fecha_vencimiento], 
-    [Tickets].[tk_fecha_cierre] AS [tk_fecha_cierre], 
-    [Tickets].[tk_estado_ticket] AS [tk_estado_ticket], 
-    [Tickets].[cli_id] AS [cli_id], 
-    [Tickets].[tec_id] AS [tec_id], 
-    [Tickets].[ent_id] AS [ent_id]
-    FROM [dbo].[Tickets] AS [Tickets]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetallesTickets" EntityType="Self.DetallesTickets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Entidades_Externas" EntityType="Self.Entidades_Externas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EntradaForos" EntityType="Self.EntradaForos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Foros" EntityType="Self.Foros" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tecnicos" EntityType="Self.Tecnicos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tickets" EntityType="Self.Tickets" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Tickets_ToClientes" Association="Self.FK_Tickets_ToClientes">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_ToTecnicos" Association="Self.FK_Tickets_ToTecnicos">
+            <End Role="Tecnicos" EntitySet="Tecnicos" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->

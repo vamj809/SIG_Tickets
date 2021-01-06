@@ -31,10 +31,12 @@ namespace SIG_Tickets
             MiCliente = cliente;
             MiTecnico = tecnico;
             //////////////////////////// Carga Data
+            Text = Text + " #" + IdTicket; // Ajustar título del Form con #Ticket
             CbCategoria.Text = MiTicket.tk_categoria;
             TxtTitulo.Text = MiTicket.tk_asunto;
             TxtDescripcion.Text = MiTicket.tk_descripción;
             TxtFechaCreacion.Text = MiTicket.tk_fecha_creacion;
+            TxtSolicitante.Text = MiTicket.Cliente?.cli_nombres + " " + MiTicket.Cliente?.cli_apellidos;
             if (MiTicket.tk_estado_ticket == null)
                 CbEstado.Text = "Abierto";
             else
@@ -63,14 +65,17 @@ namespace SIG_Tickets
 
             //Verifica si es el cliente o el tecnico que agrega el mensaje.
             string TipoUsuario;
-            if (MiCliente == null)
+            if (MiCliente == null) {
                 TipoUsuario = "Técnico";
+                MiTicket.tec_id = MiTecnico.tec_id; //Actualiza el técnico asignado como el que está modificando la solicitud.
+            }
             else
                 TipoUsuario = "Cliente";
 
             //Prepara los datos para guardarlos en la BD
             MiTicket.tk_categoria = CbCategoria.Text;
             MiTicket.tk_estado_ticket = CbEstado.Text;
+            
             MiTicket.DetallesTickets.Add(new DetallesTicket() {
                 dt_titulo = TipoUsuario,
                 dt_comentario = txtComentario.Text

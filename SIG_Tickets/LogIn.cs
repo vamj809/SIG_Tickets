@@ -30,7 +30,7 @@ namespace SIG_Tickets
                 UsuarioTec = DataEntities.Tecnicos.Where(s => s.tec_usuario == txtUserName.Text).FirstOrDefault();
                 if (UsuarioTec != null) {
                     //LogIn Correcto
-                    //MessageBox.Show($"Técnico:  {UsuarioTec.tec_apellido}, {UsuarioTec.tec_nombre}");
+                    //MessageBox.Show($"Bienvenido Técnico:  {UsuarioTec.tec_apellido}, {UsuarioTec.tec_nombre}");
                     
                     Hide();
                     new GestionSolicitudes(UsuarioTec).Show();

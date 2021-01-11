@@ -77,5 +77,10 @@ namespace SIG_Tickets
         {
             Close();
         }
+
+        private void CB_Categoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

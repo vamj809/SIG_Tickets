@@ -78,5 +78,10 @@ namespace SIG_Tickets
                 LoadRows();
             }
         }
+
+        private void SolicitudesCliente_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

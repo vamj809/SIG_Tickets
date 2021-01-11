@@ -69,5 +69,10 @@ namespace SIG_Tickets
                 LoadRows();
             }
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

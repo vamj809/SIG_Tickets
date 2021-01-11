@@ -61,7 +61,7 @@ namespace SIG_Tickets
             LoadRows();
         }
 
-        private void GestionSolicitudes_KeyDown(object sender, KeyEventArgs e)
+        private void MyTable_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {

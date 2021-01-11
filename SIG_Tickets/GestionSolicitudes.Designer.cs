@@ -134,6 +134,7 @@ namespace SIG_Tickets
             this.MyTable.TabIndex = 15;
             this.MyTable.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MyTable_CellDoubleClick);
             this.MyTable.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MyTable_CellDoubleClick);
+            this.MyTable.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MyTable_KeyDown);
             // 
             // tk_id_ticket
             // 
@@ -179,7 +180,6 @@ namespace SIG_Tickets
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GestionSolicitudes";
             this.Text = "Gestión de Solicitudes";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GestionSolicitudes_KeyDown);
             this.TheStatusStrip.ResumeLayout(false);
             this.TheStatusStrip.PerformLayout();
             this.panel1.ResumeLayout(false);

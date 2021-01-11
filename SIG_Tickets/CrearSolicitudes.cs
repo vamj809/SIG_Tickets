@@ -23,8 +23,40 @@ namespace SIG_Tickets
             MiTecnico = tecnico;
         }
 
+        private int IsTicketValid()
+        {
+            if (string.IsNullOrWhiteSpace(CB_Categoria.Text) || string.IsNullOrWhiteSpace(txtTitulo.Text) ||
+                string.IsNullOrWhiteSpace(txtDescripcion.Text))
+                return -1;
+            if (CB_Categoria.SelectedIndex == -1)
+                return -2;
+            if (txtTitulo.Text.Length > 255)
+                return -3;
+            if (txtDescripcion.Text.Length > 255)
+                return -4;
+            return 0;
+        }
+
         private void btnCrearTicket_Click(object sender, EventArgs e)
         {
+            //Valida el ticket.
+            int TicketValidationStatus = IsTicketValid();
+            if (TicketValidationStatus < 0)
+            {
+                if (TicketValidationStatus == -1)
+                    MessageBox.Show("Debe llenar todos los campos con algún valor","Ticket Inválido",MessageBoxButtons.OK);
+                else if (TicketValidationStatus == -2) { 
+                    MessageBox.Show("Debe seleccionar una categoria de la lista", "Ticket Inválido", MessageBoxButtons.OK); 
+                    CB_Categoria.Focus(); }
+                else if (TicketValidationStatus == -3) { 
+                    MessageBox.Show("Debe resumir un poco el título. Está demasiado largo.", "Ticket Inválido", MessageBoxButtons.OK); 
+                    txtTitulo.Focus(); }
+                else if (TicketValidationStatus == -3) { 
+                    MessageBox.Show("Debe resumir un poco la descripción. Está demasiado larga.", "Ticket Inválido", MessageBoxButtons.OK); 
+                    txtDescripcion.Focus(); }
+                
+                return;
+            }
             DataEntities.Tickets.Add(
                 new Ticket()
                 {

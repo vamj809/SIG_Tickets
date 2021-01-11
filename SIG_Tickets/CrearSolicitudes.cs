@@ -23,13 +23,14 @@ namespace SIG_Tickets
             MiTecnico = tecnico;
         }
 
-        private void btnCrearSolicitud_Click(object sender, EventArgs e)
+        private void btnCrearTicket_Click(object sender, EventArgs e)
         {
             DataEntities.Tickets.Add(
-                new Ticket() {
-                    tk_categoria = comboBox1.Text,
-                    tk_asunto = textBox1.Text,
-                    tk_descripción = textBox2.Text,
+                new Ticket()
+                {
+                    tk_categoria = CB_Categoria.Text,
+                    tk_asunto = txtTitulo.Text,
+                    tk_descripción = txtDescripcion.Text,
                     cli_id = MiCliente?.cli_id, //Si es un cliente agregalo, si no lo es, coloca null
                     tec_id = MiTecnico?.tec_id, //Si es un técnico agrégalo, si no lo es, coloca null
                     tk_fecha_creacion = DateTime.Now.ToString(),
@@ -40,7 +41,7 @@ namespace SIG_Tickets
             Close();
         }
 
-        private void BtnCerrarSesion_Click(object sender, EventArgs e)
+        private void BtnCancelarTicket_Click(object sender, EventArgs e)
         {
             Close();
         }

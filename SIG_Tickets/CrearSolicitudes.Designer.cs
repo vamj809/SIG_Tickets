@@ -28,116 +28,110 @@ namespace SIG_Tickets
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnCrearSolicitud = new System.Windows.Forms.Button();
-            this.BtnCerrarSesion = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnCrearTicket = new System.Windows.Forms.Button();
+            this.BtnCancelarTicket = new System.Windows.Forms.Button();
+            this.txtTitulo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CB_Categoria = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // btnCrearSolicitud
+            // btnCrearTicket
             // 
-            this.btnCrearSolicitud.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrearSolicitud.Location = new System.Drawing.Point(16, 395);
-            this.btnCrearSolicitud.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnCrearSolicitud.Name = "btnCrearSolicitud";
-            this.btnCrearSolicitud.Size = new System.Drawing.Size(189, 41);
-            this.btnCrearSolicitud.TabIndex = 20;
-            this.btnCrearSolicitud.Text = "Crear Solicitud";
-            this.btnCrearSolicitud.UseVisualStyleBackColor = true;
-            this.btnCrearSolicitud.Click += new System.EventHandler(this.btnCrearSolicitud_Click);
+            this.btnCrearTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrearTicket.Location = new System.Drawing.Point(12, 321);
+            this.btnCrearTicket.Name = "btnCrearTicket";
+            this.btnCrearTicket.Size = new System.Drawing.Size(142, 33);
+            this.btnCrearTicket.TabIndex = 20;
+            this.btnCrearTicket.Text = "Crear Solicitud";
+            this.btnCrearTicket.UseVisualStyleBackColor = true;
+            this.btnCrearTicket.Click += new System.EventHandler(this.btnCrearTicket_Click);
             // 
-            // BtnCerrarSesion
+            // BtnCancelarTicket
             // 
-            this.BtnCerrarSesion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCerrarSesion.Location = new System.Drawing.Point(285, 396);
-            this.BtnCerrarSesion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.BtnCerrarSesion.Name = "BtnCerrarSesion";
-            this.BtnCerrarSesion.Size = new System.Drawing.Size(189, 41);
-            this.BtnCerrarSesion.TabIndex = 21;
-            this.BtnCerrarSesion.Text = "Cancelar";
-            this.BtnCerrarSesion.UseVisualStyleBackColor = true;
-            this.BtnCerrarSesion.Click += new System.EventHandler(this.BtnCerrarSesion_Click);
+            this.BtnCancelarTicket.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnCancelarTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCancelarTicket.Location = new System.Drawing.Point(214, 322);
+            this.BtnCancelarTicket.Name = "BtnCancelarTicket";
+            this.BtnCancelarTicket.Size = new System.Drawing.Size(142, 33);
+            this.BtnCancelarTicket.TabIndex = 21;
+            this.BtnCancelarTicket.Text = "Cancelar";
+            this.BtnCancelarTicket.UseVisualStyleBackColor = true;
+            this.BtnCancelarTicket.Click += new System.EventHandler(this.BtnCancelarTicket_Click);
             // 
-            // textBox1
+            // txtTitulo
             // 
-            this.textBox1.Location = new System.Drawing.Point(144, 95);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(312, 22);
-            this.textBox1.TabIndex = 2;
+            this.txtTitulo.Location = new System.Drawing.Point(108, 77);
+            this.txtTitulo.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTitulo.Name = "txtTitulo";
+            this.txtTitulo.Size = new System.Drawing.Size(235, 20);
+            this.txtTitulo.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 98);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(25, 80);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 17);
+            this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 22;
             this.label1.Text = "Título";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 156);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(25, 127);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 17);
+            this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 23;
             this.label2.Text = "Descripcion";
             // 
-            // textBox2
+            // txtDescripcion
             // 
-            this.textBox2.Location = new System.Drawing.Point(144, 153);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(312, 219);
-            this.textBox2.TabIndex = 3;
+            this.txtDescripcion.Location = new System.Drawing.Point(108, 124);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(235, 179);
+            this.txtDescripcion.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(33, 39);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(25, 32);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 17);
+            this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 25;
             this.label3.Text = "Categoria";
             // 
-            // comboBox1
+            // CB_Categoria
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.CB_Categoria.FormattingEnabled = true;
+            this.CB_Categoria.Items.AddRange(new object[] {
             "Soporte a Usuarios",
             "Compra de Equipos",
             "Instalación de Programas"});
-            this.comboBox1.Location = new System.Drawing.Point(144, 39);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(312, 24);
-            this.comboBox1.TabIndex = 1;
+            this.CB_Categoria.Location = new System.Drawing.Point(108, 32);
+            this.CB_Categoria.Name = "CB_Categoria";
+            this.CB_Categoria.Size = new System.Drawing.Size(235, 21);
+            this.CB_Categoria.TabIndex = 1;
             // 
             // CrearSolicitudes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(488, 450);
-            this.Controls.Add(this.comboBox1);
+            this.ClientSize = new System.Drawing.Size(366, 366);
+            this.Controls.Add(this.CB_Categoria);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.BtnCerrarSesion);
-            this.Controls.Add(this.btnCrearSolicitud);
+            this.Controls.Add(this.txtTitulo);
+            this.Controls.Add(this.BtnCancelarTicket);
+            this.Controls.Add(this.btnCrearTicket);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CrearSolicitudes";
             this.Text = "Crea tu Solicitud";
             this.ResumeLayout(false);
@@ -147,13 +141,13 @@ namespace SIG_Tickets
 
         #endregion
 
-        private System.Windows.Forms.Button btnCrearSolicitud;
-        private System.Windows.Forms.Button BtnCerrarSesion;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnCrearTicket;
+        private System.Windows.Forms.Button BtnCancelarTicket;
+        private System.Windows.Forms.TextBox txtTitulo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CB_Categoria;
     }
 }

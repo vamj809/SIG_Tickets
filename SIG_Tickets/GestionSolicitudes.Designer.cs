@@ -105,7 +105,7 @@ namespace SIG_Tickets
             this.panel1.Controls.Add(this.BtnCerrarSesion);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(600, 54);
             this.panel1.TabIndex = 16;
@@ -123,7 +123,7 @@ namespace SIG_Tickets
             this.Usuario});
             this.MyTable.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.MyTable.Location = new System.Drawing.Point(0, 56);
-            this.MyTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MyTable.Margin = new System.Windows.Forms.Padding(2);
             this.MyTable.MultiSelect = false;
             this.MyTable.Name = "MyTable";
             this.MyTable.ReadOnly = true;
@@ -176,9 +176,10 @@ namespace SIG_Tickets
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.MyTable);
             this.Controls.Add(this.TheStatusStrip);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GestionSolicitudes";
             this.Text = "Gestión de Solicitudes";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GestionSolicitudes_KeyDown);
             this.TheStatusStrip.ResumeLayout(false);
             this.TheStatusStrip.PerformLayout();
             this.panel1.ResumeLayout(false);

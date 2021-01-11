@@ -36,11 +36,11 @@ namespace SIG_Tickets
             this.BtnCerrarSesion = new System.Windows.Forms.Button();
             this.TimeStamp_Timer = new System.Windows.Forms.Timer(this.components);
             this.MyTable = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.tk_id_ticket = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tk_asunto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tk_estado_ticket = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Técnico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.TheStatusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MyTable)).BeginInit();
             this.panel1.SuspendLayout();
@@ -103,6 +103,7 @@ namespace SIG_Tickets
             // 
             // MyTable
             // 
+            this.MyTable.AccessibleName = "MyDataGrid";
             this.MyTable.AllowUserToAddRows = false;
             this.MyTable.AllowUserToDeleteRows = false;
             this.MyTable.AllowUserToOrderColumns = true;
@@ -116,7 +117,7 @@ namespace SIG_Tickets
             this.tk_estado_ticket,
             this.Técnico});
             this.MyTable.Location = new System.Drawing.Point(0, 58);
-            this.MyTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MyTable.Margin = new System.Windows.Forms.Padding(2);
             this.MyTable.MultiSelect = false;
             this.MyTable.Name = "MyTable";
             this.MyTable.ReadOnly = true;
@@ -126,18 +127,7 @@ namespace SIG_Tickets
             this.MyTable.Size = new System.Drawing.Size(562, 259);
             this.MyTable.TabIndex = 12;
             this.MyTable.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MyTable_CellDoubleClick);
-            // 
-            // panel1
-            // 
-            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel1.Controls.Add(this.btnCrearSolicitud);
-            this.panel1.Controls.Add(this.BtnCerrarSesion);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(562, 55);
-            this.panel1.TabIndex = 13;
+            this.MyTable.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MyTable_KeyDown);
             // 
             // tk_id_ticket
             // 
@@ -170,6 +160,18 @@ namespace SIG_Tickets
             this.Técnico.Name = "Técnico";
             this.Técnico.ReadOnly = true;
             // 
+            // panel1
+            // 
+            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel1.Controls.Add(this.btnCrearSolicitud);
+            this.panel1.Controls.Add(this.BtnCerrarSesion);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(562, 55);
+            this.panel1.TabIndex = 13;
+            // 
             // SolicitudesCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -178,7 +180,7 @@ namespace SIG_Tickets
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.MyTable);
             this.Controls.Add(this.TheStatusStrip);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SolicitudesCliente";
             this.Text = "Mis Solicitudes";
             this.TheStatusStrip.ResumeLayout(false);

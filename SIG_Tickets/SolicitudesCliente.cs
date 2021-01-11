@@ -69,5 +69,14 @@ namespace SIG_Tickets
             new EditarSolicitudes((int)MyTable.SelectedRows[0].Cells[0].Value, MiCliente).ShowDialog();
             LoadRows();
         }
+
+        private void MyTable_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                new EditarSolicitudes((int)MyTable.SelectedRows[0].Cells[0].Value, MiCliente).ShowDialog();
+                LoadRows();
+            }
+        }
     }
 }

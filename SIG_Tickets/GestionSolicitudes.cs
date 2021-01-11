@@ -60,5 +60,14 @@ namespace SIG_Tickets
             new EditarSolicitudes((int)MyTable.SelectedRows[0].Cells[0].Value, null, MiTecnico).ShowDialog();
             LoadRows();
         }
+
+        private void GestionSolicitudes_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                new EditarSolicitudes((int)MyTable.SelectedRows[0].Cells[0].Value, null, MiTecnico).ShowDialog();
+                LoadRows();
+            }
+        }
     }
 }
